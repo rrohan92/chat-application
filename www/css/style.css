@@ -93,8 +93,13 @@ input.white{
 
 }
 
-.message{
+.receivedmessage{
   padding: 7px 14px 7px 14px;
+  font-size: 16px;
+}
+
+.sentmessage{
+  padding: 7px 14px 7px 300px;
   font-size: 16px;
 }
 

@@ -18,7 +18,7 @@ var privatechat=app.controller('PrivateChatController',function($stateParams,soc
   socket.on('connect',function(){
 
     connected = true;
-    
+
     //Add user
     socket.emit('add user', $stateParams.username);
 
@@ -69,7 +69,7 @@ var privatechat=app.controller('PrivateChatController',function($stateParams,soc
   //  console.log("Sender: " + $stateParams.username);
    // console.log("Receiver: " + $stateParams.recipient);
     socket.emit('Private', {recipient: $stateParams.recipient, sender: $stateParams.username, message: self.message});
-    addMessageToList($stateParams.username,true,self.message);
+    addMessageToList($stateParams.username,false,self.message);
   //  console.log('to:' + $stateParams.recipient + ' message:'+ self.message);
     socket.emit('stop typing');
     self.message = "";
@@ -122,7 +122,7 @@ var privatechat=app.controller('PrivateChatController',function($stateParams,soc
 
   // Adds the visual chat typing message
   function addChatTyping (data) {
-    addMessageToList(data.username,true," is typing");
+    addMessageToList(data.username,true, "is typing");
   }
 
   // Removes the visual chat typing message

@@ -12,8 +12,9 @@
     </div>
     <div>
       <ul>
-        <li ng-class="{'message':message.style,'log':!message.style}"  ng-repeat="message in PrivatechatCtrl.messages" >
-          <span ng-show="message.style" ng-style="{color:message.color}" >{{message.username}} : </span >{{message.content}}
+        <li ng-class="{'receivedmessage': message.style,'sentmessage':!message.style}"  ng-repeat="message in PrivatechatCtrl.messages" >
+          <span ng-show="message.style"><!--{{message.username}} :-->
+          </span >{{message.content}}
         </li>
       </ul>
     </div>
@@ -21,10 +22,12 @@
   <div class="list light-grey bottommsg">
     <div class="item item-input-inset light-grey">
       <label  class="item-input-wrapper line-light-grey nopadtop">
-        <input class="line-light-grey" ng-change="PrivatechatCtrl.updateTyping()" type="text"  placeholder="Message" ng-enter="PrivatechatCtrl.sendMessage()" ng-model="PrivatechatCtrl.message">
+        <input class="line-light-grey" type="text"  placeholder="Message"
+               ng-enter="PrivatechatCtrl.sendMessage()" ng-model="PrivatechatCtrl.message">
       </label>
       <div class="divsend">
-        <button class="button button-clear ion-android-send iconsend" ng-click="PrivatechatCtrl.sendMessage()"></button>
+        <button class="button button-clear ion-android-send iconsend"
+                ng-click="PrivatechatCtrl.sendMessage()"></button>
       </div>
     </div>
   </div>
